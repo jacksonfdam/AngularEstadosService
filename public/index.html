@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html ng-app="listaEstados">
+    <head>
+        <title>Lista Estados</title>
+        <link href="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css" rel="stylesheet">
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.7/angular.min.js"></script>
+        <script src="app.js"></script>
+    </head>
+    <body>
+        <div ng-controller="estadoController">
+            <div class="panel panel-default">
+                <div class="panel-heading">Lista de Estados</div>
+                <div class="panel-body">
+                    <p>Adicionar Estado</p>
+                    <div class="form-inline">
+                        <input class="form-control" placeholder="Titulo" type="text" ng-model="novoEstado.titulo" />
+                        <input class="form-control" placeholder="URL Imagem" type="text" ng-model="novoEstado.imagem" />
+                        <button class="btn btn-default" ng-click="addEstado(novoEstado)">Adicionar</button>
+                    </div>
+                </div>
+                <ul class="list-group">
+                    <li class="list-group-item" ng-repeat="estado in estados">
+                        {{estado.titulo}} {{estado.image_elm()}}
+                        <a href="javascript:" ng-click="removeEstado($index)" title="{{$index}}">
+                            <i class="glyphicon glyphicon-remove pull-right"></i>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </body>
+</html>
